@@ -16,7 +16,7 @@ namespace UnitTest2
 			int a[n] = { 1, 3, 5 };
 			int max = a[0];
 			for (int i = 1; i < n; i++)
-				if (a[i] > max && abs(a[i]) % 2 == 1)
+				if (a[i] > max)
 					max = a[i];
 			Assert::AreEqual(5, max);
 		}

@@ -25,11 +25,19 @@ int Max(int* a, const int n)
 {
 	int max = a[0];
 	for (int i = 1; i < n; i++)
-		if (a[i] > max && abs(a[i]) % 2 == 1)
+		if (a[i] > max)
 			max = a[i];
 	return max;
 }
 
+int Min(int* a, const int n)
+{
+	int min = a[0];
+	for (int i = 1; i < n; i++)
+		if (a[i] < min)
+			min = a[i];
+	return min;
+}
 int main()
 {
 	int n;
@@ -42,6 +50,7 @@ int main()
 	Print(a, n);
 
 	cout << "max = " << Max(a, n) << endl;
+	cout << "min = " << Min(a, n) << endl;
 
 	return 0;
 }
