@@ -21,23 +21,34 @@ void Print(int* a, const int n)
 	cout << endl;
 }
 
-int Max(int* a, const int n)
+void Sort(int* a, const int n) 
 {
-	int max = a[0];
-	for (int i = 1; i < n; i++)
-		if (a[i] > max)
-			max = a[i];
-	return max;
+	
+	for (int i = 0; i < n; i++) 
+	{
+		int max = a[0];
+		int min = a[0]; 
+		int imax = 0;
+		int imin = 0; 
+		for (int i = 1; i < n; i++)
+		{
+			if (a[i] > max)
+			{
+				max = a[i];
+				imax = i;
+			}
+			else
+				if (a[i] < min)
+				{
+					min = a[i];
+					imin = i;
+				}
+		}
+		a[imin] = max;
+		a[imax] = min;
+	}
 }
 
-int Min(int* a, const int n)
-{
-	int min = a[0];
-	for (int i = 1; i < n; i++)
-		if (a[i] < min)
-			min = a[i];
-	return min;
-}
 int main()
 {
 	int n;
@@ -45,12 +56,11 @@ int main()
 	cin >> n;
 	int* a = new int[n];
 
-
 	Input(a, n);
 	Print(a, n);
 
-	cout << "max = " << Max(a, n) << endl;
-	cout << "min = " << Min(a, n) << endl;
+	Sort(a, n);
+	Print(a, n);
 
 	return 0;
 }
